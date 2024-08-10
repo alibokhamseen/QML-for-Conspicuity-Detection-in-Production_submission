@@ -37,7 +37,7 @@ the final model only needs Y rotations.
 
 ## 2) Quanvolution
 I followed [Pennylane's tutorial](https://pennylane.ai/qml/demos/tutorial_variational_classifier/) 
-to construct classical neural network with input processed using a quantum layers. Final results show that the quantum layer doesn't 
+to construct classical neural network with input processed using a quantum layer. Final results show that the quantum layer doesn't 
 add any advantage over a fully classical model when used with the MNIST fashion dataset. Also, adding more random 
 quantum layers produced worse results. I expect this happened because adding random layers prodcues randomized results with 
 less apparent patterns to classical models.
