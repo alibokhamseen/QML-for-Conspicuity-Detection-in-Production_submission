@@ -55,11 +55,20 @@ This model is easy to train and doesn't require large training set for `precisio
 
 ### - Binary fraction extraction $-$ multi qubit
 
-For this model, I attempt to find the first `n` binary fractional bits of the solution. I first convert the input into binary. Note that my conversion isn't about finding the ideal approximation but about taking the first `n` binary fractional bits. This method takes decimal inputs and converts them to binary, whose accuracy depends on the parameter `n`. The binary input encoding into the quantum circuit allocates a qubit for the sign, a qubit for the integer part of the binary number, and `n` qubits to represent each fractional bit.
+For this model, I attempt to find the first `n` binary fractional bits of the solution. 
+
+$\sin(x) = \alpha$, where in binary $\alpha = a_0 . a_1a_2...a_n$
+
+$$\alpha = a_0 \cdot 2^0 + a_1 \cdot 2^{-1} + a_2 \cdot 2^{-2} + \dots + a_n \cdot 2^{-n}$$
+
+where $a_i \in \\{0, 1\\}$
+
+
+I first convert the input into binary. Note that my conversion isn't about finding the ideal approximation but about taking the first `n` binary fractional bits. This method takes decimal inputs and converts them to binary, whose accuracy depends on the parameter `n`. The binary input encoding into the quantum circuit allocates a qubit for the sign, a qubit for the integer part of the binary number, and `n` qubits to represent each fractional bit.
 
 To get the labels using the binary representation of the input:
 
 binary input -> decimal input -> sine() -> decimal label -> binary label
 
-For `n = 2` the model achieved 100% accuracy on validation data. It is possible to increase `n` to get higher accuracy.
+For `n = 3` the model achieved 100% accuracy on validation data. It is possible to increase `n` to get higher accuracy. I believe this technique has potential to scale with higher `n` given access to quantum computers.
 
