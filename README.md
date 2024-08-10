@@ -45,7 +45,17 @@ less apparent patterns to classical models.
 
 ## 3) Sin function approximation
 
-To approximate the 
+I present two models. 
+
+### - Encode the solution in a single qubit expectation value
+
+This methode trains a model using a `precision` parameter. The advantage of this model is that it only needs a single qubit, but the downside is that using the model in real life requires many shots to get expectation value within the desired precision. 
+
+This model is easy to train and doesn't require large training set for `precision = 0.001` (I used 100 data points). This model achieved 100% accuracy.
+
+### - Binary fraction extraction $-$ multi qubit
+
+For this model, I use the first `n` binary fractional qubits. 
 
 ### Project Presentation Deck:
 _Upload/ Link a 3min. presentation deck here._
