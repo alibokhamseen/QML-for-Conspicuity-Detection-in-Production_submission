@@ -51,14 +51,15 @@ I present two models.
 
 This methode trains a model using a `precision` parameter. The advantage of this model is that it only needs a single qubit, but the downside is that using the model in real life requires many shots to get expectation value within the desired precision. 
 
-This model is easy to train and doesn't require large training set for `precision = 0.001` (I used 100 data points). This model achieved 100% accuracy.
+This model is easy to train and doesn't require large training set for `precision = 0.001` (I used 100 data points). This model achieved 100% accuracy on unseen data.
 
 ### - Binary fraction extraction $-$ multi qubit
 
-For this model, I use the first `n` binary fractional qubits. 
+For this model, I attempt to find the first `n` binary fractional bits of the solution. I first convert the input into binary. Note that my conversion isn't about finding the ideal approximation but about taking the first `n` binary fractional bits. This method takes decimal inputs and converts them to binary, whose accuracy depends on the parameter `n`. The binary input encoding into the quantum circuit allocates a qubit for the sign, a qubit for the integer part of the binary number, and `n` qubits to represent each fractional bit.
 
-### Project Presentation Deck:
-_Upload/ Link a 3min. presentation deck here._
+To get the labels using the binary representation of the input:
 
-See project presentation guidelines [here](https://docs.google.com/document/d/13nWF8AxFAfFYTWEYPT3BpPdYkqtxxSAjmuXj_zcMh-E/edit?usp=sharing)
+binary input -> decimal input -> sine() -> decimal label -> binary label
+
+For `n = 2` the model achieved 100% accuracy on validation data. It is possible to increase `n` to get higher accuracy.
 
